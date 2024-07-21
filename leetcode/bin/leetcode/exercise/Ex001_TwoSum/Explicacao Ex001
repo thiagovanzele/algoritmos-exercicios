@@ -1,0 +1,50 @@
+1 - Primeiramente utilizamos um for para percorrer cada elemento do array.
+2 - Criamos um Map que será armazenado o valor que complementa um número, e a posição que ele está.
+3 - Pegamos um determinado número do array original, por exemplo vamos usar o '2'.
+4 - Verificamos no map existe o número 2, caso exista, siginifica que em algum momento, dentro do
+nosso array original alguém precisou do número 2.
+5 - No nosso map ficou salvo como valor do map a posição que esse número se encontra no array.
+6 - Devemos retornar a posição atual do array que corresponde ao numero 2, e a posição do
+elemento do map que precisava do numero 2.
+
+7 - caso não encontremos o numero 2 no map, significa que ele ainda não é o complemento de ninguem.
+8 - dessa forma vamos adicionar no map o complemento dele para o target. no caso o Target é 9,
+logo: 9 - 2 = 7.
+9 - Isso significa se em algum momento quando estivermos percorrendo o array, nos encontrarmos com
+o numero 7, ele ja estara no nosso map, isso significa que ja passamos por alguem que precisou dele.
+10 - dessa forma retornamos a posicao do numero 7 no array original que nesse caso vai ser o I
+e o valor da associado a chave '2' no map.
+
+
+Exemplo de array: {2, 11, 15, 7, 8, 5, 13}   Target: 10;
+
+Na primeira iteração temos o elemento 2 e vamos verificar se alguem ja precisou dele, no caso
+vamos ver se o numero 2 se encontra no MAP, e ele não vai estar.
+Então vamos verificar quem irá precisar do numero 2, fazendo a conta Target(10) - 2 = 8
+Logo iremos adicionar o numero 8 e qual a posição do elemento que precisa dele no array. No caso
+o elemento que precisa do 8 é o 2, e ele se encontra na primeira posição do array(0).
+
+Sendo assim adicionaremos no map o seguinte valor {8(numero que precisa do 2) => 0(Posicao do 2)}.
+
+Faremos isso para todos os elementos do array.
+
+Na proxima iteração nos deperamos com o numero 11, e faremos a mesma coisa, veremos se ele
+ja se encontra no map. Caso ele se encontre significa que ele é o complemento de alguem,
+caso não, deixamos mapeado o numero que precisa dele para chegar no target, e a posição dele no array.
+No casso 10 - 11 = -1.
+
+Colocaremos no nosso map {-1 => 1} 
+Isso significa que se em algum momento encontrarmos o número -1, o elemento que precisa dele 
+ja foi achado e sabemos a posição dele.
+
+Faremos isso para cada elemento, então chegaremos no elemento de número 8, o index será 4.
+Iremos ver se no nosso map existe a chave '8'. E o nosso map retornará True, isso significa
+que em algum momento alguém ja precisou do número 8 para alcançar o target.
+
+Logo encontramos as duas posições que chega no target. Serão elas a posição do I atual = 4,
+e o valor associado a chave '8' do map, no caso será 0.
+
+Mas Porque o valor associado a chave é 0? 
+Porque o valor que complementa o 8 é 2, e o 2 estava na posição 0 do array original. Ja achamos
+os dois valores que juntos dão o resultado do target. Agora é só retornar esses dois numeros em um array
+no caso retornaremos: return new int[] {0, 4}; 
