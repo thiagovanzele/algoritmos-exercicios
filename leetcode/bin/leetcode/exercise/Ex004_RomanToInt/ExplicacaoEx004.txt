@@ -1,0 +1,106 @@
+TABELA: 
+
+Inteiro	Romano	Exemplos
+1		I		II é 2, III é 3, IIII é 4 mas é preferível IV
+5		V		IV é 4, VI é 6, VII é 7, VIII é 8
+10		X		IX é 9, XI é 11, XIV é 14, XVI é 16, XIX é 19, XXIV é 24
+50		L		XL é 40, XLIX é 49, LX é 60, LXIX é 69, LXXXIV é 84
+100		C		XC é 90, XCIX é 99, CI é 101, CIV é 104, CCLXIV é 264
+500		D		CD é 400, CDL é 450, CDXCI é 491, DXLIX é 549
+1000	M		CM é 900, CMLXIX é 969, MXIV é 1014, MCDV é 1405
+
+
+Para entendermos como funciona um algorismo romano, SEMPRE que um número que precede 
+o outro é menor do que esse outro, no caso esse valor deve ser subtraído do valor totaol.
+
+EXEMPLO : IV = O I é menor que V, então subtraimos 1 do valor total,
+Total = -1 
+
+O V não tem nada na sua frente, logo é o valor inteiro, então:
+Total = -1 + 5 => Total = 4;
+
+EXEMPLO2 : MMXL;
+
+M não é menor que M, então somamos:
+Total = 1000;
+M não é menor que X, então somamos: 
+Total = 1000 + 1000 => 2000;
+X É menor que L, então subitraimos o X;
+Total = 2000 - 10 => 1990;
+Por fim, L é o último algorismo, então ele será somado;
+Total = 1990 + 50 => 2040;
+
+==================================================================================
+
+ALGORITMO PARA CALCULAR:
+
+Primeiramente devemos guardar o valor de cada letra romana, a melhor maneira de 
+fazermos isso é usando o MAP, onde podemos armazenar chaves e valores.
+
+A chave de cada valor sera um Charecter que representa o algarismo Romano, e seu 
+respectivo valor será o valor int desse algarismo.
+
+No caso teremos um map assim {
+								I : 1,
+								V : 5,
+								X : 10,
+								L : 50,
+								}
+								
+
+EXEMPLO: Vamos usar o valor MMXXIV = 2024;
+
+A partir de agora, devemos criar um laço for para percorrer cada elemento da string.
+Para isso, criamos um for que vai até o tamanho da string -1 para não tomarmos uma
+excessao. No caso teremos o valor I começando em 0, e indo ate 5 (i < string.lenght).
+
+A string tem tamanho 6, logo < 6 vai até 5.
+
+Agora como primeiro passo, vamos verificar se o Indice que estamos não é o último indíce.
+usamos I < s.lenght() - 1;
+
+Fazemos essa comparação para garantir que existe mais um algorismo ainda para compararmos,
+Caso não seja o último, então comparamos se o algorismo Romano atual é menor que o 
+próximo algorismo da string.
+
+Usamos map.get(s.charAt(i)) < map.get(s.charAt(i + 1)) = Se isso retornar True, então 
+significa que ele é menor que o próximo valor, logo ele deve ser subtraído do total.
+
+Total -= map.get(s.charAt(i)); 
+
+Caso de False, significa que ele é maior ou igual o próximo elemento, então deve ser somado
+ao total:
+
+Total += map.get(s.charAt(i));
+
+Lembrando que a função map.get irá retornar o valor que contém a chave da String.
+
+Indices = 0 1 2 3 4 5
+	      M M X X I V = 2024;
+
+Para i = 2 = > Temos o valor "X", então no map.get(s.charAt(2)) retornaremos o valor de X
+no map, que é = 10;
+
+Juntando tudo teremos:
+
+i = 0 => M == 1000;
+Próximo valor é M, então somamos esse 1000;
+
+i = 1 => M == 1000;
+Próximo valor é X, então somamos esse 1000;
+
+i = 2 => X == 10;
+Próximo valor é X, então somamos esse 10;
+
+i = 3 => X == 10;
+Próximo valor é I, então somamos esse 10;
+
+i = 4 => I == 1;
+Próximo valor é v, então SUBTRAIMOS esse 1;
+
+i = 5 => V == 5;
+Último valor da String, logo somamos ele;
+
+total = 1000 + 1000 + 10 + 10 - 1 + 5 => 2024;
+
+
