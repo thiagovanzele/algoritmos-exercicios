@@ -1,0 +1,15 @@
+package leetcode.exercise.Ex005_LongestCommomPrefix;
+
+public class Ex005 {
+
+	public static void main(String[] args) {
+		String palavra = "Cachorro";
+		palavra += "D";
+		System.out.println(palavra);
+	}
+
+	public static String longestCommonPrefix(String[] strs) {
+		StringBuilder ans = new StringBuilder();
+		return null;
+	}
+}

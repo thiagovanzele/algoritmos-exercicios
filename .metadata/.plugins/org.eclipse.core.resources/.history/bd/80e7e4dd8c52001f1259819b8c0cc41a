@@ -1,0 +1,19 @@
+package leetcode.exercise.Ex005_LongestCommomPrefix;
+
+import java.util.Arrays;
+
+public class Ex005 {
+
+	public static void main(String[] args) {
+		String[] palavras = new String[] {"Macaco", "Gato", "Cachorro"};
+		Arrays.sort(palavras);
+		System.out.println(Arrays.toString(palavras));
+		
+	}
+
+	public static String[] longestCommonPrefix(String[] strs) {
+		StringBuilder ans = new StringBuilder();
+		Arrays.sort(strs);
+		return strs;
+	}
+}
