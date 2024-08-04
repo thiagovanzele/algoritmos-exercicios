@@ -1,0 +1,10 @@
+package leetcode.exercise.Ex002_RemoveDuplicates;
+
+public class Ex002 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
