@@ -1,0 +1,13 @@
+package leetcode.exercise.Ex003_PalindromeNumber;
+
+public class Ex003 {
+
+	public static void main(String[] args) {
+
+		int n = 121;
+		
+		System.out.println(Integer.toString(n));
+	}
+
+	
+}
