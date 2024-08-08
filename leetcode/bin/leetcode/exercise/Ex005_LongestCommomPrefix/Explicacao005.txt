@@ -1,0 +1,42 @@
+Criamos a palavra que vamos retornar usando StringBuilder pois ele é proprio para
+criar Strings.
+
+StringBuilder resposta = new StringBuilder();
+
+Primeiramente, devemos organizar o array recebido de maneira Lexografica, isso 
+significa que iremos organizar o array de forma alfabética. 
+
+Para isso usamos o metodo Arrays.sort(arrayRecebido);
+Fazemos isso para que possamos comparar apenas as duas extremidades, porque se por
+exemplo a segunda letra da primeira palavra, for diferente da segunda letra da 
+ultima, é indiferente se as demais palavras do meio sao iguais, o prefixo é difernete
+e isso retornara Falso.
+
+Exemplo = {Flores, Floresta, Floricultura}.
+
+Nesse caso, temos "Flor" como prefixo comum em todas palavras, porém a parte "es" 
+só esta presente na primeira e na segunda palavra, e na última é diferente, por isso
+independente das palavras do meio terem o mesmo prefixo, se a última não tem, não é
+valido, por isso organizamos em ordem afabética e comparamos apenas a primeira e última.
+
+
+Após isso, pegamos a primeira e a última palavra do array, e devemos descobrir qual
+a menor entre elas para NÃO recebermos uma excessao de index inexistente. 
+
+Para isso usamos o metodo Integer.min(palavra1, palavra2), e isso nos retornara quantos
+indices deveremos percorrer de acordo com a MENOR palavra.
+
+Após isso, devemos percorrer cada indice da primeira palavra enquanto i for menor que o 
+lenght minimo entre as duas palavras, e comparamos se os caracteres são iguais.
+
+A partir dai, apenas compararemos cada letra, caso a letra for igual, adicionamos ela 
+no nosso StringBuilder, caso as letras forem diferente, então já conseguimos o maior
+prefixo comum entre todas, então apenas retornamos o StringBuilder.
+
+no Caso:
+
+if (primeiraPalavra.charAt(i) != ultimaPalavra.charAt(i) {
+	return resposta.toString();
+} else {
+	resposta.append(primeiraPalavra.charAt(i);
+

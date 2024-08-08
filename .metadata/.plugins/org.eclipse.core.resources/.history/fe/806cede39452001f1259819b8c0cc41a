@@ -7,7 +7,7 @@ public class Ex005 {
 	public static void main(String[] args) {
 		String[] palavras = new String[] {"flor","fluxo","voo"};
 		String prefixo = longestCommonPrefix(palavras);
-		System.out.println(prefixo);
+		System.out.println(prefixo.toString());
 	}
 
 	public static String longestCommonPrefix(String[] strs) {

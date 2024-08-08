@@ -1,6 +1,0 @@
-1 - Primeiramente utilizamos um for para percorrer cada elemento do array.
-2 - Criamos um Map que será armazenado o valor que complementa um número, e a posição que ele está.
-3 - Pegamos um determinado número do array original, por exemplo vamos usar o '2'.
-4 - Verificamos no map existe o número 2, caso exista, siginifica que em algum momento, dentro do
-nosso array original alguém precisou do número 2.
-5 - No nosso map ficou salvo como valor do map a posição que esse número se encontra.
