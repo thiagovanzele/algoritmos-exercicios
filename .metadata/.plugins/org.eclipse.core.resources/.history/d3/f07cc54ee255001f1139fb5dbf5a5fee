@@ -41,7 +41,12 @@ public class Ex006 {
 			}
 		}
 		
-		return parenteses.isEmpty();
+		if (parenteses.isEmpty()) {
+			return true;
+		} else {
+			return false;
+		}
+			
 	}
 
 }
